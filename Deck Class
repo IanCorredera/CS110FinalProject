@@ -1,0 +1,29 @@
+/** Ian Corredera
+CS 110
+Deck Class */
+
+import java.util.ArrayList;
+
+public class Deck
+{
+   // Fields
+   private int deckSize;   // To hold number of cards in deck
+   private ArrayList<Card> gameDeck;
+   
+   /**
+   Constructor sets number of cards in deck
+   @param deck the deck size
+   */
+   public Deck()
+   {
+        
+      // Create ArrayList for deck
+      gameDeck = new ArrayList<Card>();
+      
+      // Add cards to deck
+      gameDeck.add(new Card());
+      gameDeck.add(new Card());
+      gameDeck.add(new Card());
+
+   }
+   
