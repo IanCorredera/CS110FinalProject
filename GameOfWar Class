@@ -1,0 +1,74 @@
+/** Ian Corredera
+CS 110
+GameOfWar Class */
+
+public class GameOfWar
+{
+   public static void main(String[] args)
+   {
+   // Create decks
+   Deck myDeck = new Deck();
+   Deck compDeck = new Deck();
+   
+   // Each player plays a card
+   Card myCard = myDeck.getCard();
+   System.out.println(myCard);  
+   Card compCard = compDeck.getCard();
+   System.out.println(compCard);
+   
+   // Get card ranks
+   int myCardRank = myCard.getRank();
+   int compCardRank = compCard.getRank();
+   
+   // Determine battle winner
+   if (myCardRank > compCardRank)
+   {
+      myDeck.addCard(myCard);
+      myDeck.addCard(compCard);
+   }
+   else if (myCardRank < compCardRank)
+   {
+      compDeck.addCard(myCard);
+      compDeck.addCard(compCard);
+   }
+   else
+   {
+      // Each player plays on card facedown
+      Card myTurnedDown = myDeck.getCard();
+      Card compTurnedDown = compDeck.getCard();
+      
+      // Each player plays one more card
+      Card myNextCard = myDeck.getCard();
+      Card compNextCard = compDeck.getCard();
+      
+      // Get card ranks
+      int myNextCardRank = myNextCard.getRank();
+      int compNextCardRank = compNextCard.getRank();
+      
+      // Determine battle winner
+      if (myNextCardRank > compNextCardRank)
+      {
+         myDeck.addCard(myCard);
+         myDeck.addCard(myTurnedDown);
+         myDeck.addCard(myNextCard);
+         myDeck.addCard(compCard);
+         myDeck.addCard(compTurnedDown);
+         myDeck.addCard(compNextCard);
+      }
+      else if (myCardRank < compCardRank)
+      {
+         compDeck.addCard(myCard);
+         compDeck.addCard(myTurnedDown);
+         compDeck.addCard(myNextCard);
+         compDeck.addCard(compCard);
+         compDeck.addCard(compTurnedDown);
+         compDeck.addCard(compNextCard);
+      }
+
+      
+      
+      
+   }
+   }
+   
+}
