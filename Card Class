@@ -1,0 +1,98 @@
+/** Ian Corredera
+CS 110
+Card Class */
+
+import java.util.Random;   // Needed for Random class
+
+public class Card
+{
+   // Fields
+   private int rank; // to hold the card rank
+   private String suit;   // to hold the card suit
+   
+   // Default constructor
+   public Card()
+   {
+      // Create a Random object
+      Random randomNumbers = new Random();
+      
+      // Set card rank
+      int rankNumber = randomNumbers.nextInt(13)+1;
+      rank = rankNumber;
+      
+      // Set card suit
+      int suitNumber = randomNumbers.nextInt(4)+1;
+      if (suitNumber == 1)
+      {
+         suit = "Hearts";
+      }
+      else if (suitNumber == 2)
+      {
+         suit = "Clubs";
+      }
+      else if (suitNumber == 3)
+      {
+         suit = "Spades";
+      }
+      else
+      {
+         suit = "Diamonds";
+      }
+      
+      
+      
+   }
+   
+   /** 
+   Constructor sets card rank and suite
+   @param r the card rank
+   @param s the card suit
+   */
+   
+   public Card(int r, String s)
+   {
+      rank = r;
+      suit = s;
+   }
+   
+   /** 
+   Method sets the card rank
+   @param r the card rank
+   */ 
+   public void setRank(int r)
+   {
+      rank = r;
+   }
+   
+   /**
+   Method sets the card suit
+   @param s the card suit
+   */
+   public void setSuit(String s)
+   {
+      suit = s;
+   }
+   
+   /**
+   Method returns the card rank
+   @param return the card rank
+   */
+   public int getRank()
+   {
+      return rank;
+   }
+   
+   /**
+   Method returns the card suit
+   @param return the card suit
+   */
+   public String getSuit()
+   {
+      return suit;
+   }
+
+
+
+
+
+}
