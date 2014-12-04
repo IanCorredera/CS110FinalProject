@@ -1,0 +1,186 @@
+/** Ian Corredera
+CS110
+GUI Class */
+
+import javax.swing.*;   // Needed for Swing class
+import java.awt.event.*;   // Needed for ActionListener Interface
+
+public class CardWindow extends JFrame
+{
+   private final int WINDOW_WIDTH = 1000; // Window width in pixels
+   private final int WINDOW_Height = 750;   // Window height in pixels
+   private JPanel panel;   // To reference a panel
+   private JButton playButton;   // To reference a button
+   private JLabel myDeckLabel;  // To reference a label
+   private JLabel compDeckLabel; // To reference a label
+   private JLabel myCardLabel;  // To reference a label
+   private JLabel compCardLabel;  // To reference a label
+   
+   
+   // Constructor
+   public CardWindow()
+   {
+      // Set this window's title
+      setTitle("War");
+      
+      // Specify what happens when the close button is clicked
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+      // Build the panel and add it to the frame
+      buildPanel();
+      
+      // Add the panel to the frame's content pane
+      add(panel);
+      
+      // Display the window
+      setVisible(true);
+   }
+   
+   // buildPanel method
+   private void buildPanel()
+   {
+      // Create labels to display deck images
+      ImageIcon myDeckImage = new ImageIcon("back.jpg");
+      myDeckLabel = new JLabel(myDeckImage);
+      
+      ImageIcon compDeckImage = new ImageIcon("back.jpg");
+      compDeckLabel = new JLabel(compDeckImage);
+      
+      // Create a button with the caption "Play Card"
+      playButton = new JButton("Play Card");
+      
+      // Add an action listener to the button
+      playButton.addActionListener(new PlayButtonListener());
+      
+      // Create a JPanel object and let the panel field reference it
+      panel = new JPanel();
+      
+      //Add the labels and button components to the panel
+      panel.add(myDeckLabel);
+      panel.add(compDeckLabel);
+      panel.add(playButton);
+   }
+   
+   /**
+      PlayButtonListener is an action listener class for the Play Card button
+   */
+   
+   private class PlayButtonListener implements ActionListener
+   {
+      /**
+         The actionPerformed method executes when the user clicks
+         on the Play Card button.
+         @param e The event object
+      */
+      
+      public void actionPerformed(ActionEvent e)
+      {
+         // Create decks
+         Deck myDeck = new Deck();
+         Deck compDeck = new Deck();
+         
+         // Each player plays a card
+         Card myCard = myDeck.getCard();
+        
+         Card compCard = compDeck.getCard();
+         
+         
+         // Get card ranks
+         int myCardRank = myCard.getRank();
+         int compCardRank = compCard.getRank();
+         
+         // Get card suits
+         String myCardSuit = myCard.getSuit();
+         String compCardSuit = myCard.getSuit();
+         
+         
+         
+         
+         
+         ImageIcon myCardImage;  // To hold my card image
+         
+         // Display my card
+         if ((myCardRank == 2) && (myCardSuit == "Hearts"))
+         {
+            myCardImage = new ImageIcon("2h.jpg");
+         }
+         else
+         {
+            myCardImage = new ImageIcon("3h.jpg");
+         }
+         
+         myCardLabel = new JLabel(myCardImage);
+         panel.add(myCardLabel);
+         
+         ImageIcon compCardImage;   // To hold comp card image
+         
+         // Display comp card
+         if ((compCardRank == 3) && (compCardSuit == "Spades"))
+         {
+            compCardImage = new ImageIcon("3s.jpg");
+         }
+         else
+         {
+            compCardImage = new ImageIcon("12s.jpg");
+         }
+         
+         compCardLabel = new JLabel(compCardImage);
+         panel.add(compCardLabel);
+         
+         // Determine battle winner
+         if (myCardRank > compCardRank)
+         {
+            myDeck.addCard(myCard);
+            myDeck.addCard(compCard);
+         }
+         else if (myCardRank < compCardRank)
+         {
+            compDeck.addCard(myCard);
+            compDeck.addCard(compCard);
+         }
+         else
+         {
+            // Each player plays on card facedown
+            Card myTurnedDown = myDeck.getCard();
+            Card compTurnedDown = compDeck.getCard();
+            
+            // Each player plays one more card
+            Card myNextCard = myDeck.getCard();
+            Card compNextCard = compDeck.getCard();
+            
+            // Get card ranks
+            int myNextCardRank = myNextCard.getRank();
+            int compNextCardRank = compNextCard.getRank();
+            
+            // Determine battle winner
+            if (myNextCardRank > compNextCardRank)
+            {
+               myDeck.addCard(myCard);
+               myDeck.addCard(myTurnedDown);
+               myDeck.addCard(myNextCard);
+               myDeck.addCard(compCard);
+               myDeck.addCard(compTurnedDown);
+               myDeck.addCard(compNextCard);
+            }
+            else if (myCardRank < compCardRank)
+            {
+               compDeck.addCard(myCard);
+               compDeck.addCard(myTurnedDown);
+               compDeck.addCard(myNextCard);
+               compDeck.addCard(compCard);
+               compDeck.addCard(compTurnedDown);
+               compDeck.addCard(compNextCard);
+            }
+         }
+   
+
+      }
+   }
+   
+   public static void main(String[] args)
+   {
+      CardWindow window = new CardWindow();
+      
+   }
+   
+}
