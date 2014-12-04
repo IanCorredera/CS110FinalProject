@@ -7,14 +7,18 @@ import java.awt.event.*;   // Needed for ActionListener Interface
 
 public class CardWindow extends JFrame
 {
-   private final int WINDOW_WIDTH = 1000; // Window width in pixels
-   private final int WINDOW_Height = 750;   // Window height in pixels
+   private final int WINDOW_WIDTH = 2000; // Window width in pixels
+   private final int WINDOW_Height = 1050;   // Window height in pixels
    private JPanel panel;   // To reference a panel
    private JButton playButton;   // To reference a button
    private JLabel myDeckLabel;  // To reference a label
    private JLabel compDeckLabel; // To reference a label
    private JLabel myCardLabel;  // To reference a label
    private JLabel compCardLabel;  // To reference a label
+   private ImageIcon myCardImage;   // To hold image
+   private ImageIcon compCardImage; // To hold image
+   private String myCardType;
+   private String compCardType;
    
    
    // Constructor
@@ -40,11 +44,21 @@ public class CardWindow extends JFrame
    private void buildPanel()
    {
       // Create labels to display deck images
+      
       ImageIcon myDeckImage = new ImageIcon("back.jpg");
       myDeckLabel = new JLabel(myDeckImage);
       
       ImageIcon compDeckImage = new ImageIcon("back.jpg");
       compDeckLabel = new JLabel(compDeckImage);
+      
+      // Create labels to display played card
+      myCardType = "back.jpg";
+      myCardImage = new ImageIcon(myCardType);
+      myCardLabel = new JLabel(myCardImage);
+      
+      compCardType = "back.jpg";
+      compCardImage = new ImageIcon(compCardType);
+      compCardLabel = new JLabel(compCardImage);
       
       // Create a button with the caption "Play Card"
       playButton = new JButton("Play Card");
@@ -58,6 +72,8 @@ public class CardWindow extends JFrame
       //Add the labels and button components to the panel
       panel.add(myDeckLabel);
       panel.add(compDeckLabel);
+      panel.add(compCardLabel);
+      panel.add(myCardLabel);
       panel.add(playButton);
    }
    
@@ -95,37 +111,11 @@ public class CardWindow extends JFrame
          
          
          
+        
          
          
-         ImageIcon myCardImage;  // To hold my card image
          
-         // Display my card
-         if ((myCardRank == 2) && (myCardSuit == "Hearts"))
-         {
-            myCardImage = new ImageIcon("2h.jpg");
-         }
-         else
-         {
-            myCardImage = new ImageIcon("3h.jpg");
-         }
          
-         myCardLabel = new JLabel(myCardImage);
-         panel.add(myCardLabel);
-         
-         ImageIcon compCardImage;   // To hold comp card image
-         
-         // Display comp card
-         if ((compCardRank == 3) && (compCardSuit == "Spades"))
-         {
-            compCardImage = new ImageIcon("3s.jpg");
-         }
-         else
-         {
-            compCardImage = new ImageIcon("12s.jpg");
-         }
-         
-         compCardLabel = new JLabel(compCardImage);
-         panel.add(compCardLabel);
          
          // Determine battle winner
          if (myCardRank > compCardRank)
@@ -176,6 +166,20 @@ public class CardWindow extends JFrame
 
       }
    }
+   
+   
+   
+      
+         
+         
+         
+         
+         
+      
+         
+         
+         
+  
    
    public static void main(String[] args)
    {
