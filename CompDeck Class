@@ -1,0 +1,79 @@
+/** Ian Corredera
+CS110
+CompDeck Class */
+
+public class CompDeck extends Deck
+{
+   
+   
+   /**
+   Constructor sets cards in deck
+   */
+   public CompDeck()
+   { 
+      
+      // Add cards to deck
+      gameDeck.add(new Card(3, "Spades"));
+      
+      gameDeck.add(new Card(10, "Hearts"));
+      gameDeck.add(new Card(11, "Hearts"));
+      gameDeck.add(new Card(12, "Hearts"));
+      gameDeck.add(new Card(13, "Hearts"));
+      
+      gameDeck.add(new Card(1, "Diamonds"));
+      gameDeck.add(new Card(2, "Diamonds"));
+      gameDeck.add(new Card(3, "Diamonds"));
+      gameDeck.add(new Card(4, "Diamonds"));
+      gameDeck.add(new Card(5, "Diamonds"));
+      gameDeck.add(new Card(6, "Diamonds"));
+      gameDeck.add(new Card(7, "Diamonds"));
+      gameDeck.add(new Card(8, "Diamonds"));
+      gameDeck.add(new Card(9, "Diamonds"));
+      
+      gameDeck.add(new Card(10, "Clubs"));
+      gameDeck.add(new Card(11, "Clubs"));
+      gameDeck.add(new Card(12, "Clubs"));
+      gameDeck.add(new Card(13, "Clubs"));
+      
+      gameDeck.add(new Card(1, "Spades"));
+      gameDeck.add(new Card(2, "Spades"));
+      
+      gameDeck.add(new Card(4, "Spades"));
+      gameDeck.add(new Card(5, "Spades"));
+      gameDeck.add(new Card(6, "Spades"));
+      gameDeck.add(new Card(7, "Spades"));
+      gameDeck.add(new Card(8, "Spades"));
+      gameDeck.add(new Card(9, "Spades"));
+      
+      gameDeck.add(new Card(10, "Spades"));
+      gameDeck.add(new Card(11, "Spades"));
+      gameDeck.add(new Card(12, "Spades"));
+      gameDeck.add(new Card(13, "Spades"));
+      
+      gameDeck.add(new Card(1, "Hearts"));
+      gameDeck.add(new Card(2, "Hearts"));
+      gameDeck.add(new Card(3, "Hearts"));
+      gameDeck.add(new Card(4, "Hearts"));
+      gameDeck.add(new Card(5, "Hearts"));
+      gameDeck.add(new Card(6, "Hearts"));
+      gameDeck.add(new Card(7, "Hearts"));
+      gameDeck.add(new Card(8, "Hearts"));
+      gameDeck.add(new Card(9, "Hearts"));
+      
+      gameDeck.add(new Card(10, "Diamonds"));
+      gameDeck.add(new Card(11, "Diamonds"));
+      gameDeck.add(new Card(12, "Diamonds"));
+      gameDeck.add(new Card(13, "Diamonds"));
+      
+      gameDeck.add(new Card(1, "Clubs"));
+      gameDeck.add(new Card(2, "Clubs"));
+      gameDeck.add(new Card(3, "Clubs"));
+      gameDeck.add(new Card(4, "Clubs"));
+      gameDeck.add(new Card(5, "Clubs"));
+      gameDeck.add(new Card(6, "Clubs"));
+      gameDeck.add(new Card(7, "Clubs"));
+      gameDeck.add(new Card(8, "Clubs"));
+      gameDeck.add(new Card(9, "Clubs"));
+      
+   }
+}
