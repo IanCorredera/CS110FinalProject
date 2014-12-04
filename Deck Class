@@ -2,13 +2,12 @@
 CS 110
 Deck Class */
 
-import java.util.ArrayList;
+import java.util.ArrayList;   // Needed for ArrayList class
 
 public class Deck
 {
    // Fields
-   private int deckSize;   // To hold number of cards in deck
-   private ArrayList<Card> gameDeck;
+   public ArrayList<Card> gameDeck;
    
    /**
    Constructor sets number of cards in deck
@@ -19,11 +18,18 @@ public class Deck
         
       // Create ArrayList for deck
       gameDeck = new ArrayList<Card>();
-      
-      // Add cards to deck
-      gameDeck.add(new Card());
-      gameDeck.add(new Card());
-      gameDeck.add(new Card());
-
    }
    
+   // Method gets first card an removes it from ArrayList
+   public Card getCard()
+   {
+      return gameDeck.remove(0);
+      
+   }
+   
+   // Method adds cards to bottom of pile
+   public void addCard(Card card)
+   {
+      gameDeck.add(card);
+   }
+}
